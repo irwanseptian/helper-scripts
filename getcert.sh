@@ -43,12 +43,5 @@ while getopts ":hn:s:" option; do
    esac
 done
 
-for i in $(kubectl get secret -n $NAMESPACE $SECRET_NAME -o yaml | yq e '.data' - | sed -e 's/tls.*\: //g');
-do
-    ((INDEX=INDEX+1))
-    if [[ $INDEX -eq 1 ]]
-    then
-        echo $i | base64 -d > /tmp/${SECRET_NAME}.crt
-        openssl x509 -noout -in /tmp/${SECRET_NAME}.crt -subject -ext subjectAltName -fingerprint -issuer -dates
-    fi
-done;
+kubectl get secret -n $NAMESPACE $SECRET_NAME -o yaml | yq '.data."tls.crt"' | base64 -d > /tmp/${SECRET_NAME}.crt
+openssl x509 -noout -in /tmp/${SECRET_NAME}.crt -subject -ext subjectAltName -fingerprint -issuer -dates
