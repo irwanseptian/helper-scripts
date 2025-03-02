@@ -1,0 +1,10 @@
+projecttest-1234a,compute.googleapis.com,ENABLED
+projecttest-1234a,oslogin.googleapis.com,ENABLED
+projecttest-1234b,cloudresourcemanager.googleapis.com,ENABLED
+projecttest-1234b,compute.googleapis.com,ENABLED
+projecttest-1234b,iam.googleapis.com,ENABLED
+projecttest-1234b,iamcredentials.googleapis.com,ENABLED
+projecttest-1234b,oslogin.googleapis.com,ENABLED
+projecttest-1234c,autoscaling.googleapis.com,ENABLED
+projecttest-1234c,bigquery.googleapis.com,ENABLED
+projecttest-1234c,bigquerymigration.googleapis.com,ENABLED
